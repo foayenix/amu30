@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;0,6..96,700;0,6..96,900;1,6..96,400;1,6..96,500&family=Archivo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { background: #0a0a0a; }
+  a { color: #c6a15b; text-decoration: none; }
+  a:hover { color: #e0c589; }
+  ::selection { background: #c6a15b; color: #0a0a0a; }
+  input, textarea, select, button { font-family: inherit; }
+  input:focus, textarea:focus, select:focus { outline: none; border-color: #c6a15b !important; }
+  input::placeholder, textarea::placeholder { color: #6b6b6b; }
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+</style>
+</helmet>
+<div style="background:#f4f1ea;color:#0a0a0a;font-family:'Archivo',sans-serif;max-width:520px;margin:0 auto;min-height:100vh;overflow:hidden;position:relative;">
+
+  <!-- Top marquee ribbon -->
+  <div style="background:#0a0a0a;color:#f4f1ea;overflow:hidden;white-space:nowrap;padding:9px 0;border-bottom:1px solid #c6a15b;">
+    <div style="display:inline-block;animation:marquee 22s linear infinite;font-size:10px;letter-spacing:.32em;font-weight:600;text-transform:uppercase;">
+      <span style="padding:0 18px;">The Andrew Amu Collection</span><span style="color:#c6a15b;">✦</span><span style="padding:0 18px;">S/S '26 · Colchester</span><span style="color:#c6a15b;">✦</span><span style="padding:0 18px;">Thirty · A Milestone Show</span><span style="color:#c6a15b;">✦</span><span style="padding:0 18px;">The Andrew Amu Collection</span><span style="color:#c6a15b;">✦</span><span style="padding:0 18px;">S/S '26 · Colchester</span><span style="color:#c6a15b;">✦</span><span style="padding:0 18px;">Thirty · A Milestone Show</span><span style="color:#c6a15b;">✦</span>
+    </div>
+  </div>
+
+  <!-- HERO / MASTHEAD -->
+  <section data-screen-label="Hero" style="background:#0a0a0a;color:#f4f1ea;padding:26px 24px 40px;position:relative;">
+    <!-- masthead top row -->
+    <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(244,241,234,.22);padding-bottom:12px;font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:#b8b3a7;font-weight:600;">
+      <span>Vol. 30</span>
+      <span style="color:#c6a15b;">Fashion Week</span>
+      <span>No. 07 · '26</span>
+    </div>
+
+    <!-- masthead wordmark -->
+    <div style="text-align:center;margin-top:34px;">
+      <div style="font-size:11px;letter-spacing:.4em;text-transform:uppercase;color:#c6a15b;font-weight:600;margin-bottom:20px;">The Birthday Edit</div>
+      <h1 style="font-family:'Bodoni Moda',serif;font-weight:900;line-height:.88;text-transform:uppercase;font-size:clamp(52px,17vw,92px);letter-spacing:-.01em;margin:0;">
+        Okhai<br>Andrew<br>Amu
+      </h1>
+      <div style="display:flex;align-items:center;gap:14px;justify-content:center;margin-top:22px;">
+        <span style="height:1px;width:38px;background:#c6a15b;"></span>
+        <span style="font-family:'Bodoni Moda',serif;font-style:italic;font-size:22px;color:#f4f1ea;">turns thirty</span>
+        <span style="height:1px;width:38px;background:#c6a15b;"></span>
+      </div>
+    </div>
+
+    <!-- big 30 -->
+    <div style="text-align:center;margin:30px 0 6px;">
+      <div style="font-family:'Bodoni Moda',serif;font-weight:900;font-size:clamp(140px,42vw,190px);line-height:.8;color:transparent;-webkit-text-stroke:1.5px #c6a15b;letter-spacing:-.04em;">30</div>
+    </div>
+
+    <!-- date/time/venue strip -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(244,241,234,.18);border:1px solid rgba(244,241,234,.18);margin-top:28px;">
+      <div style="background:#0a0a0a;padding:16px 14px;text-align:center;">
+        <div style="font-size:9px;letter-spacing:.26em;text-transform:uppercase;color:#8a857a;margin-bottom:7px;">The Date</div>
+        <div style="font-family:'Bodoni Moda',serif;font-size:19px;font-weight:600;">Fri · 31 July</div>
+      </div>
+      <div style="background:#0a0a0a;padding:16px 14px;text-align:center;">
+        <div style="font-size:9px;letter-spacing:.26em;text-transform:uppercase;color:#8a857a;margin-bottom:7px;">Doors / Dinner</div>
+        <div style="font-family:'Bodoni Moda',serif;font-size:19px;font-weight:600;">19:30</div>
+      </div>
+      <div style="background:#0a0a0a;padding:16px 14px;text-align:center;grid-column:1 / -1;">
+        <div style="font-size:9px;letter-spacing:.26em;text-transform:uppercase;color:#8a857a;margin-bottom:7px;">The Venue</div>
+        <div style="font-family:'Bodoni Moda',serif;font-size:19px;font-weight:600;">BBQ Lounge & Shisha</div>
+        <div style="font-size:11px;letter-spacing:.05em;color:#b8b3a7;margin-top:4px;">Haven Rd, Colchester CO2 8HT</div>
+      </div>
+    </div>
+
+    <a href="#rsvp" style="display:block;margin-top:22px;text-align:center;background:#c6a15b;color:#0a0a0a;padding:16px;font-size:11px;letter-spacing:.28em;text-transform:uppercase;font-weight:700;">Claim Your Front Row Pass</a>
+  </section>
+
+  <!-- DRESS CODE -->
+  <section data-screen-label="Dress Code" style="background:#f4f1ea;color:#0a0a0a;padding:52px 24px;text-align:center;position:relative;">
+    <div style="font-size:10px;letter-spacing:.34em;text-transform:uppercase;color:#c6a15b;font-weight:700;margin-bottom:18px;">The Dress Code</div>
+    <h2 style="font-family:'Bodoni Moda',serif;font-weight:700;font-size:clamp(34px,11vw,52px);line-height:.98;text-transform:uppercase;letter-spacing:-.01em;">
+      Dress like<br>you're front row<br><span style="font-style:italic;font-weight:500;color:#c6a15b;">at Fashion Week</span>
+    </h2>
+    <p style="max-width:340px;margin:22px auto 0;font-size:14px;line-height:1.7;color:#3a3a3a;">
+      This is a runway, not a rehearsal. Bring your boldest look — tailoring, drama, statement pieces, the outfit you've been saving. Come dressed for the show.
+    </p>
+    <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:26px;">
+      <span style="border:1px solid #0a0a0a;padding:8px 14px;font-size:10px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;">Statement</span>
+      <span style="border:1px solid #0a0a0a;padding:8px 14px;font-size:10px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;">Tailored</span>
+      <span style="border:1px solid #0a0a0a;padding:8px 14px;font-size:10px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;">Runway-ready</span>
+    </div>
+  </section>
+
+  <!-- VENUE -->
+  <section data-screen-label="Venue" style="background:#0a0a0a;color:#f4f1ea;padding:52px 24px;">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;border-bottom:1px solid rgba(244,241,234,.2);padding-bottom:14px;margin-bottom:26px;">
+      <span style="font-family:'Bodoni Moda',serif;font-size:30px;font-weight:700;">The Venue</span>
+      <span style="font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:#8a857a;">The Location</span>
+    </div>
+
+    <div style="font-family:'Bodoni Moda',serif;font-size:26px;font-weight:600;line-height:1.15;">BBQ Lounge<br>& Shisha</div>
+    <div style="font-size:13px;letter-spacing:.05em;color:#b8b3a7;margin-top:14px;line-height:1.7;">
+      Haven Road<br>Colchester CO2 8HT<br>United Kingdom
+    </div>
+
+    <!-- map placeholder -->
+    <div style="margin-top:24px;border:1px solid rgba(244,241,234,.22);height:170px;background-image:repeating-linear-gradient(45deg,rgba(198,161,91,.06) 0 10px,transparent 10px 20px);display:flex;align-items:center;justify-content:center;position:relative;">
+      <div style="width:12px;height:12px;border-radius:50%;background:#c6a15b;box-shadow:0 0 0 6px rgba(198,161,91,.2);"></div>
+      <span style="position:absolute;bottom:12px;left:14px;font-family:monospace;font-size:10px;letter-spacing:.1em;color:#8a857a;">[ map · BBQ Lounge & Shisha ]</span>
+    </div>
+    <a href="https://www.google.com/maps/search/?api=1&query=BBQ+Lounge+and+Shisha+Haven+Rd+Colchester+CO2+8HT" target="_blank" rel="noopener" style="display:block;margin-top:14px;text-align:center;border:1px solid #c6a15b;color:#c6a15b;padding:14px;font-size:11px;letter-spacing:.26em;text-transform:uppercase;font-weight:600;">Open in Maps →</a>
+  </section>
+
+  <!-- RSVP — FRONT ROW PASS -->
+  <section id="rsvp" data-screen-label="RSVP" style="background:#f4f1ea;color:#0a0a0a;padding:52px 20px 44px;">
+    <!-- ticket -->
+    <div style="border:1.5px solid #0a0a0a;background:#fff;position:relative;">
+      <!-- ticket header -->
+      <div style="background:#0a0a0a;color:#f4f1ea;padding:20px 22px;display:flex;justify-content:space-between;align-items:center;">
+        <div>
+          <div style="font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:#c6a15b;font-weight:700;">Admit One</div>
+          <div style="font-family:'Bodoni Moda',serif;font-size:26px;font-weight:700;letter-spacing:.02em;margin-top:2px;">FRONT ROW PASS</div>
+        </div>
+        <div style="text-align:right;font-family:'Bodoni Moda',serif;">
+          <div style="font-size:32px;font-weight:900;line-height:1;color:#c6a15b;">30</div>
+          <div style="font-size:9px;letter-spacing:.2em;color:#8a857a;font-family:'Archivo';text-transform:uppercase;margin-top:3px;">Row A</div>
+        </div>
+      </div>
+
+      <!-- perforation -->
+      <div style="height:0;border-top:2px dashed #cfc9bb;position:relative;"></div>
+
+      <!-- form or confirmation -->
+      <sc-if value="{{ submitted }}" hint-placeholder-val="{{ false }}">
+        <div style="padding:44px 24px;text-align:center;">
+          <div style="font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:#c6a15b;font-weight:700;">Confirmed</div>
+          <h3 style="font-family:'Bodoni Moda',serif;font-size:34px;font-weight:700;margin-top:12px;line-height:1;">You're on the list.</h3>
+          <p style="font-size:14px;line-height:1.7;color:#3a3a3a;margin-top:14px;max-width:300px;margin-left:auto;margin-right:auto;">
+            See you on the runway, {{ savedName }}. Doors at 19:30, Friday 31 July.
+          </p>
+          <button onClick="{{ resetForm }}" style="margin-top:26px;background:none;border:1px solid #0a0a0a;padding:12px 24px;font-size:10px;letter-spacing:.24em;text-transform:uppercase;font-weight:600;cursor:pointer;">Edit my RSVP</button>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ notSubmitted }}" hint-placeholder-val="{{ true }}">
+        <div style="padding:26px 22px 28px;">
+          <div style="font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:#8a857a;font-weight:600;margin-bottom:22px;">RSVP · Reserve your seat</div>
+
+          <label style="display:block;font-size:10px;letter-spacing:.22em;text-transform:uppercase;font-weight:700;margin-bottom:8px;">Full Name</label>
+          <input value="{{ name }}" onInput="{{ onName }}" placeholder="Your name" style="width:100%;background:#f4f1ea;border:1px solid #cfc9bb;padding:13px 14px;font-size:15px;color:#0a0a0a;margin-bottom:20px;" />
+
+          <label style="display:block;font-size:10px;letter-spacing:.22em;text-transform:uppercase;font-weight:700;margin-bottom:8px;">Number in your party</label>
+          <div style="display:flex;gap:8px;margin-bottom:20px;">
+            <sc-for list="{{ guestOptions }}" as="g" hint-placeholder-count="5">
+              <button onClick="{{ g.select }}" style="{{ g.style }}">{{ g.label }}</button>
+            </sc-for>
+          </div>
+
+          <label style="display:block;font-size:10px;letter-spacing:.22em;text-transform:uppercase;font-weight:700;margin-bottom:8px;">Dietary requirements</label>
+          <input value="{{ diet }}" onInput="{{ onDiet }}" placeholder="Allergies, vegetarian, etc. (optional)" style="width:100%;background:#f4f1ea;border:1px solid #cfc9bb;padding:13px 14px;font-size:15px;color:#0a0a0a;margin-bottom:20px;" />
+
+          <label style="display:block;font-size:10px;letter-spacing:.22em;text-transform:uppercase;font-weight:700;margin-bottom:8px;">A message for the birthday host</label>
+          <textarea value="{{ message }}" onInput="{{ onMessage }}" placeholder="Optional note…" rows="3" style="width:100%;background:#f4f1ea;border:1px solid #cfc9bb;padding:13px 14px;font-size:15px;color:#0a0a0a;resize:vertical;margin-bottom:24px;"></textarea>
+
+          <button onClick="{{ submit }}" style="{{ submitStyle }}">{{ submitLabel }}</button>
+          <div style="font-size:11px;color:#a09a8c;text-align:center;margin-top:12px;">{{ hint }}</div>
+        </div>
+      </sc-if>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer data-screen-label="Footer" style="background:#0a0a0a;color:#f4f1ea;padding:44px 24px 52px;text-align:center;">
+    <div style="font-family:'Bodoni Moda',serif;font-style:italic;font-size:22px;color:#c6a15b;">Kindly reply by 24 July</div>
+    <div style="height:1px;width:44px;background:rgba(244,241,234,.3);margin:22px auto;"></div>
+    <div style="font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:#8a857a;margin-bottom:6px;">Questions?</div>
+    <div style="font-size:14px;">Text the host · <a href="tel:">add your number</a></div>
+    <div style="margin-top:34px;font-family:'Bodoni Moda',serif;font-weight:900;text-transform:uppercase;font-size:15px;letter-spacing:.06em;">Okhai Andrew Amu · 30</div>
+    <div style="font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:#5a564d;margin-top:8px;">Fashion Week · S/S '26 · Colchester</div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:520,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  state = { name: "", guests: 2, diet: "", message: "", submitted: false, savedName: "" };
+
+  componentDidMount() {
+    try {
+      const saved = JSON.parse(localStorage.getItem("rsvp_amu30") || "null");
+      if (saved && saved.submitted) this.setState(saved);
+    } catch (e) {}
+  }
+
+  persist(next) {
+    try { localStorage.setItem("rsvp_amu30", JSON.stringify(next)); } catch (e) {}
+  }
+
+  submit = () => {
+    if (!this.state.name.trim()) return;
+    const next = { ...this.state, submitted: true, savedName: this.state.name.trim().split(" ")[0] };
+    this.setState(next);
+    this.persist(next);
+  };
+
+  resetForm = () => {
+    const next = { ...this.state, submitted: false };
+    this.setState(next);
+    this.persist(next);
+  };
+
+  renderVals() {
+    const { name, guests, diet, message, submitted, savedName } = this.state;
+    const canSubmit = name.trim().length > 0;
+
+    const guestOptions = [1, 2, 3, 4, 5].map((n) => {
+      const active = guests === n;
+      return {
+        label: n === 5 ? "5+" : String(n),
+        select: () => this.setState({ guests: n }),
+        style: `flex:1;padding:13px 0;font-size:15px;font-weight:600;cursor:pointer;border:1px solid ${active ? "#0a0a0a" : "#cfc9bb"};background:${active ? "#0a0a0a" : "#f4f1ea"};color:${active ? "#c6a15b" : "#0a0a0a"};font-family:'Bodoni Moda',serif;transition:all .15s;`,
+      };
+    });
+
+    const submitStyle = `width:100%;padding:17px;font-size:11px;letter-spacing:.28em;text-transform:uppercase;font-weight:700;cursor:${canSubmit ? "pointer" : "not-allowed"};border:none;background:${canSubmit ? "#c6a15b" : "#d8d2c4"};color:${canSubmit ? "#0a0a0a" : "#8a857a"};transition:background .2s;`;
+
+    return {
+      name, diet, message, submitted, savedName,
+      notSubmitted: !submitted,
+      guestOptions,
+      submitStyle,
+      submitLabel: "Confirm my RSVP",
+      hint: canSubmit ? "One tap and your seat is reserved." : "Enter your name to confirm.",
+      onName: (e) => this.setState({ name: e.target.value }),
+      onDiet: (e) => this.setState({ diet: e.target.value }),
+      onMessage: (e) => this.setState({ message: e.target.value }),
+      submit: this.submit,
+      resetForm: this.resetForm,
+    };
+  }
+}
+</script>
+</body>
+</html>
