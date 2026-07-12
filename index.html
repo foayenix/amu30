@@ -113,7 +113,10 @@
       <div style="width:12px;height:12px;border-radius:50%;background:#c6a15b;box-shadow:0 0 0 6px rgba(198,161,91,.2);"></div>
       <span style="position:absolute;bottom:12px;left:14px;font-family:monospace;font-size:10px;letter-spacing:.1em;color:#8a857a;">[ map · BBQ Lounge & Shisha ]</span>
     </div>
-    <a href="https://www.google.com/maps/search/?api=1&query=BBQ+Lounge+and+Shisha+Haven+Rd+Colchester+CO2+8HT" target="_blank" rel="noopener" style="display:block;margin-top:14px;text-align:center;border:1px solid #c6a15b;color:#c6a15b;padding:14px;font-size:11px;letter-spacing:.26em;text-transform:uppercase;font-weight:600;">Open in Maps →</a>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px;">
+      <a href="https://www.google.com/maps/search/?api=1&query=BBQ+Lounge+and+Shisha+Haven+Rd+Colchester+CO2+8HT" target="_blank" rel="noopener" style="display:block;text-align:center;border:1px solid #c6a15b;color:#c6a15b;padding:14px;font-size:11px;letter-spacing:.26em;text-transform:uppercase;font-weight:600;">Open in Maps →</a>
+      <a href="https://www.bbq-lounge.co.uk/menu-list1/" target="_blank" rel="noopener" style="display:block;text-align:center;background:#c6a15b;color:#0a0a0a;padding:14px;font-size:11px;letter-spacing:.26em;text-transform:uppercase;font-weight:600;">View Menu →</a>
+    </div>
   </section>
 
   <!-- RSVP — FRONT ROW PASS -->
@@ -176,19 +179,52 @@
 
   <!-- FOOTER -->
   <footer data-screen-label="Footer" style="background:#0a0a0a;color:#f4f1ea;padding:44px 24px 52px;text-align:center;">
-    <div style="font-family:'Bodoni Moda',serif;font-style:italic;font-size:22px;color:#c6a15b;">Kindly reply by 24 July</div>
+    <div style="font-family:'Bodoni Moda',serif;font-style:italic;font-size:22px;color:#c6a15b;">Kindly reply by 29 July</div>
     <div style="height:1px;width:44px;background:rgba(244,241,234,.3);margin:22px auto;"></div>
     <div style="font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:#8a857a;margin-bottom:6px;">Questions?</div>
-    <div style="font-size:14px;">Text the host · <a href="tel:">add your number</a></div>
+    <div style="font-size:14px;">Text the host · <a href="tel:07423142859">07423 142859</a></div>
     <div style="margin-top:34px;font-family:'Bodoni Moda',serif;font-weight:900;text-transform:uppercase;font-size:15px;letter-spacing:.06em;">Okhai Andrew Amu · 30</div>
     <div style="font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:#5a564d;margin-top:8px;">Fashion Week · S/S '26 · Colchester</div>
+
+    <!-- host access -->
+    <div style="margin-top:30px;">
+      <a onClick="{{ toggleHostPanel }}" style="font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:#5a564d;cursor:pointer;text-decoration:underline;">{{ toggleHostLabel }}</a>
+    </div>
+
+    <sc-if value="{{ hostPanelOpen }}" hint-placeholder-val="{{ false }}">
+      <div style="margin-top:16px;max-width:280px;margin-left:auto;margin-right:auto;text-align:left;">
+        <sc-if value="{{ hostUnlocked }}" hint-placeholder-val="{{ false }}">
+          <div style="text-align:center;">
+            <div style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#c6a15b;margin-bottom:10px;">Host Access Unlocked</div>
+            <a href="{{ dashboardUrl }}" target="_blank" rel="noopener" style="display:block;border:1px solid #c6a15b;color:#c6a15b;padding:10px;font-size:10px;letter-spacing:.2em;text-transform:uppercase;text-align:center;">Open RSVP Dashboard →</a>
+          </div>
+        </sc-if>
+        <sc-if value="{{ hostLocked }}" hint-placeholder-val="{{ true }}">
+          <input type="password" value="{{ hostPassword }}" onInput="{{ onHostPassword }}" placeholder="Host password" style="width:100%;background:#161616;border:1px solid #333;color:#f4f1ea;padding:10px 12px;font-size:13px;margin-bottom:8px;" />
+          <button onClick="{{ checkHostPassword }}" style="width:100%;background:#c6a15b;color:#0a0a0a;border:none;padding:10px;font-size:10px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;cursor:pointer;">Unlock</button>
+          <sc-if value="{{ hostError }}" hint-placeholder-val="{{ false }}">
+            <div style="color:#e07d7d;font-size:10px;margin-top:8px;text-align:center;">{{ hostError }}</div>
+          </sc-if>
+        </sc-if>
+      </div>
+    </sc-if>
   </footer>
 
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:520,&quot;height&quot;:900}}">
+// TODO: replace with your real Formspree form endpoint (formspree.io) once created.
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/YOUR_FORM_ID";
+// TODO: replace with your real Formspree dashboard URL for this form (Formspree > your form > Submissions).
+const FORMSPREE_DASHBOARD_URL = "https://formspree.io/forms/YOUR_FORM_ID/submissions";
+// Simple client-side gate only — not real security, just keeps the link out of casual view.
+const HOST_PASSWORD = "202630";
+
 class Component extends DCLogic {
-  state = { name: "", guests: 2, diet: "", message: "", submitted: false, savedName: "" };
+  state = {
+    name: "", guests: 2, diet: "", message: "", submitted: false, savedName: "",
+    hostPanelOpen: false, hostPassword: "", hostUnlocked: false, hostError: "",
+  };
 
   componentDidMount() {
     try {
@@ -201,17 +237,47 @@ class Component extends DCLogic {
     try { localStorage.setItem("rsvp_amu30", JSON.stringify(next)); } catch (e) {}
   }
 
+  notifyHost(data) {
+    fetch(FORMSPREE_ENDPOINT, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify({
+        name: data.name.trim(),
+        guests: data.guests,
+        diet: data.diet,
+        message: data.message,
+      }),
+    }).catch(() => {});
+  }
+
   submit = () => {
     if (!this.state.name.trim()) return;
     const next = { ...this.state, submitted: true, savedName: this.state.name.trim().split(" ")[0] };
     this.setState(next);
     this.persist(next);
+    this.notifyHost(next);
   };
 
   resetForm = () => {
     const next = { ...this.state, submitted: false };
     this.setState(next);
     this.persist(next);
+  };
+
+  toggleHostPanel = () => {
+    this.setState({ hostPanelOpen: !this.state.hostPanelOpen, hostError: "" });
+  };
+
+  onHostPassword = (e) => {
+    this.setState({ hostPassword: e.target.value, hostError: "" });
+  };
+
+  checkHostPassword = () => {
+    if (this.state.hostPassword === HOST_PASSWORD) {
+      this.setState({ hostUnlocked: true, hostError: "" });
+    } else {
+      this.setState({ hostError: "Incorrect password." });
+    }
   };
 
   renderVals() {
@@ -241,6 +307,17 @@ class Component extends DCLogic {
       onMessage: (e) => this.setState({ message: e.target.value }),
       submit: this.submit,
       resetForm: this.resetForm,
+
+      hostPanelOpen: this.state.hostPanelOpen,
+      hostUnlocked: this.state.hostUnlocked,
+      hostLocked: !this.state.hostUnlocked,
+      hostPassword: this.state.hostPassword,
+      hostError: this.state.hostError,
+      dashboardUrl: FORMSPREE_DASHBOARD_URL,
+      toggleHostLabel: this.state.hostPanelOpen ? "Close" : "Host Access",
+      toggleHostPanel: this.toggleHostPanel,
+      onHostPassword: this.onHostPassword,
+      checkHostPassword: this.checkHostPassword,
     };
   }
 }
