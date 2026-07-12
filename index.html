@@ -213,10 +213,8 @@
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:520,&quot;height&quot;:900}}">
-// TODO: replace with your real Formspree form endpoint (formspree.io) once created.
-const FORMSPREE_ENDPOINT = "https://formspree.io/f/YOUR_FORM_ID";
-// TODO: replace with your real Formspree dashboard URL for this form (Formspree > your form > Submissions).
-const FORMSPREE_DASHBOARD_URL = "https://formspree.io/forms/YOUR_FORM_ID/submissions";
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/maqrywrg";
+const FORMSPREE_DASHBOARD_URL = "https://formspree.io/forms/maqrywrg/submissions";
 // Simple client-side gate only — not real security, just keeps the link out of casual view.
 const HOST_PASSWORD = "202630";
 
@@ -246,8 +244,13 @@ class Component extends DCLogic {
         guests: data.guests,
         diet: data.diet,
         message: data.message,
+        _subject: `RSVP: ${data.name.trim()} (${data.guests})`,
       }),
-    }).catch(() => {});
+    })
+      .then((res) => {
+        if (!res.ok) console.error("Formspree notification failed", res.status);
+      })
+      .catch((err) => console.error("Formspree notification error", err));
   }
 
   submit = () => {
